@@ -73,7 +73,7 @@
     Cache-Control = "public, max-age=3600"
 
 # Configurações de plugins (opcional)
-[plugins]
-  # Plugin para otimização de imagens (se necessário)
-  # package = "@netlify/plugin-lighthouse"
+# Descomente e adicione plugins conforme necessário:
+# [[plugins]]
+#   package = "@netlify/plugin-lighthouse"
 
