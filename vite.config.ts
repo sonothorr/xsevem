@@ -26,12 +26,11 @@ export default defineConfig(({ mode }) => {
         }
       },
       build: {
-        minify: 'terser',
-        terserOptions: {
-          compress: {
-            drop_console: isProduction,
-            drop_debugger: isProduction,
-          },
+        minify: 'esbuild',
+        // Esbuild já remove console.log automaticamente em produção
+        // Mas podemos configurar se necessário:
+        esbuild: {
+          drop: isProduction ? ['console', 'debugger'] : [],
         },
         rollupOptions: {
           output: {
