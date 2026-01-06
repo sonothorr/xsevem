@@ -15,12 +15,11 @@ export const AliveBackground: React.FC = () => {
         }}
       ></div>
       
-      {/* Orbes flutuantes otimizados - blur reduzido e GPU acceleration */}
+      {/* Orbes flutuantes otimizados - blur mínimo e GPU acceleration */}
       <motion.div 
         animate={{ 
           x: [0, 100, 0], 
           y: [0, 50, 0],
-          scale: [1, 1.2, 1]
         }}
         transition={{ 
           duration: 20, 
@@ -28,7 +27,7 @@ export const AliveBackground: React.FC = () => {
           ease: "linear",
           type: "tween"
         }}
-        className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-brand-cyan/5 blur-[60px] rounded-full transform-gpu will-change-transform"
+        className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-brand-cyan/5 blur-[30px] rounded-full transform-gpu will-change-transform"
         style={{ 
           backfaceVisibility: 'hidden',
           transform: 'translateZ(0)',
@@ -38,7 +37,6 @@ export const AliveBackground: React.FC = () => {
         animate={{ 
           x: [0, -80, 0], 
           y: [0, 120, 0],
-          scale: [1.2, 1, 1.2]
         }}
         transition={{ 
           duration: 25, 
@@ -46,7 +44,7 @@ export const AliveBackground: React.FC = () => {
           ease: "linear",
           type: "tween"
         }}
-        className="absolute top-[20%] -right-[10%] w-[40%] h-[40%] bg-brand-cyan/3 blur-[50px] rounded-full transform-gpu will-change-transform"
+        className="absolute top-[20%] -right-[10%] w-[40%] h-[40%] bg-brand-cyan/3 blur-[25px] rounded-full transform-gpu will-change-transform"
         style={{ 
           backfaceVisibility: 'hidden',
           transform: 'translateZ(0)',
@@ -63,7 +61,7 @@ export const AliveBackground: React.FC = () => {
           ease: "linear",
           type: "tween"
         }}
-        className="absolute bottom-[10%] left-[15%] w-[30%] h-[30%] bg-brand-cyan/5 blur-[40px] rounded-full transform-gpu will-change-transform"
+        className="absolute bottom-[10%] left-[15%] w-[30%] h-[30%] bg-brand-cyan/5 blur-[20px] rounded-full transform-gpu will-change-transform"
         style={{ 
           backfaceVisibility: 'hidden',
           transform: 'translateZ(0)',

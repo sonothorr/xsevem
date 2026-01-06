@@ -9,17 +9,8 @@ export const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    let ticking = false;
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 50);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -46,12 +37,11 @@ export const Navbar: React.FC = () => {
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out border-b transform-gpu will-change-[background-color,padding] ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out border-b ${
           isScrolled 
-            ? 'bg-brand-black/95 backdrop-blur-sm py-3 border-white/10' 
+            ? 'bg-brand-black/90 backdrop-blur-md py-3 border-white/10' 
             : 'bg-transparent py-6 border-transparent'
         }`}
-        style={{ backfaceVisibility: 'hidden' }}
       >
         <div className="container mx-auto px-6 md:px-12 max-w-7xl flex justify-between items-center">
           {/* Logo */}
@@ -97,9 +87,7 @@ export const Navbar: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2, type: "tween" }}
-            className="fixed inset-0 z-40 bg-brand-black flex flex-col items-center justify-center gap-10 px-6 md:hidden transform-gpu"
-            style={{ backfaceVisibility: 'hidden' }}
+            className="fixed inset-0 z-40 bg-brand-black flex flex-col items-center justify-center gap-10 px-6 md:hidden"
           >
             {menuItems.map((item) => (
               <button 

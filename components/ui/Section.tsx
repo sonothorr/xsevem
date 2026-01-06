@@ -24,18 +24,18 @@ export const Section: React.FC<SectionProps> = ({
     initial: { opacity: 0.3, y: 20 },
     whileInView: { opacity: 1, y: 0 },
     viewport: { 
-      once: true, 
+      once: false, 
       amount: 0.2,
       margin: "0px 0px -15% 0px" 
     },
     transition: { 
-      duration: 0.6, 
-      ease: [0.16, 1, 0.3, 1],
+      duration: 0.5, 
+      ease: "easeOut",
       type: "tween"
     },
   };
 
-  const containerClass = hasContainer ? "container mx-auto px-4 md:px-12 max-w-7xl" : "";
+  const containerClass = hasContainer ? "container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl" : "";
 
   return (
     <motion.section
@@ -60,8 +60,8 @@ export const Reveal: React.FC<{ children: React.ReactNode; delay?: number }> = (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-20px" }}
-      transition={{ duration: 0.6, delay, ease: "easeOut", type: "tween" }}
+      viewport={{ once: false, margin: "-20px" }}
+      transition={{ duration: 0.5, delay, ease: "easeOut", type: "tween" }}
       className="will-change-[opacity,transform] transform-gpu"
       style={{ backfaceVisibility: 'hidden' }}
     >
