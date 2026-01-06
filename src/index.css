@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-cyan: #22d3ee;
+  --color-brand-cyan-dark: #0e7490;
+  --color-brand-black: #050505;
+  --color-brand-dark: #0a0a0a;
+  --color-brand-gray: #171717;
+  
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Syne', sans-serif;
+  
+  --background-image-glow: conic-gradient(from 90deg at 50% 50%, #00000000 50%, #22d3ee 100%);
+}
+
+/* Garantir que as cores brand funcionem com opacidade */
+@layer utilities {
+  .bg-brand-cyan\/5 {
+    background-color: rgb(34 211 238 / 0.05);
+  }
+  .bg-brand-cyan\/10 {
+    background-color: rgb(34 211 238 / 0.1);
+  }
+  .bg-brand-cyan\/20 {
+    background-color: rgb(34 211 238 / 0.2);
+  }
+  .border-brand-cyan\/20 {
+    border-color: rgb(34 211 238 / 0.2);
+  }
+  .border-brand-cyan\/30 {
+    border-color: rgb(34 211 238 / 0.3);
+  }
+  .border-brand-cyan\/40 {
+    border-color: rgb(34 211 238 / 0.4);
+  }
+  .border-brand-cyan\/50 {
+    border-color: rgb(34 211 238 / 0.5);
+  }
+  .text-brand-cyan\/60 {
+    color: rgb(34 211 238 / 0.6);
+  }
+  .hover\:bg-brand-cyan\/10:hover {
+    background-color: rgb(34 211 238 / 0.1);
+  }
+  .hover\:border-brand-cyan\/40:hover {
+    border-color: rgb(34 211 238 / 0.4);
+  }
+  .hover\:bg-brand-gray\/50:hover {
+    background-color: rgb(23 23 23 / 0.5);
+  }
+  .bg-brand-gray\/20 {
+    background-color: rgb(23 23 23 / 0.2);
+  }
+  .bg-brand-gray\/30 {
+    background-color: rgb(23 23 23 / 0.3);
+  }
+}
+
+body {
+  background-color: #050505;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hero-title {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+}
+
+.text-glow {
+  text-shadow: 0 0 30px rgba(34, 211, 238, 0.4);
+}
+
+::selection {
+  background: #22d3ee;
+  color: #050505;
+}
+

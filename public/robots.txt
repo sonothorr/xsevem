@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://xsevem.com.br/sitemap.xml
+
+# Bloquear arquivos desnecessários
+Disallow: /dist/
+Disallow: /node_modules/
+
