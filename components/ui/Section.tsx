@@ -21,16 +21,17 @@ export const Section: React.FC<SectionProps> = ({
   // Fix: Add explicit MotionProps type to ensure correct type inference for the `ease` array,
   // which was being inferred as `number[]` instead of a tuple `[number, number, number, number]`.
   const motionProps: MotionProps = disableAnimation ? {} : {
-    initial: { filter: 'blur(4px)', opacity: 0.4, scale: 0.99 },
-    whileInView: { filter: 'blur(0px)', opacity: 1, scale: 1 },
+    initial: { opacity: 0.3, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
     viewport: { 
-      once: false, 
+      once: true, 
       amount: 0.2,
       margin: "0px 0px -15% 0px" 
     },
     transition: { 
-      duration: 0.9, 
+      duration: 0.6, 
       ease: [0.16, 1, 0.3, 1],
+      type: "tween"
     },
   };
 
@@ -40,7 +41,7 @@ export const Section: React.FC<SectionProps> = ({
     <motion.section
       id={id}
       {...motionProps}
-      className={`py-16 md:py-32 relative will-change-[filter,opacity,transform] transform-gpu ${className}`}
+      className={`py-16 md:py-32 relative will-change-[opacity,transform] transform-gpu ${className}`}
       style={{ backfaceVisibility: 'hidden' }}
     >
       {hasContainer ? (
@@ -60,8 +61,9 @@ export const Reveal: React.FC<{ children: React.ReactNode; delay?: number }> = (
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-20px" }}
-      transition={{ duration: 0.7, delay, ease: "easeOut" }}
+      transition={{ duration: 0.6, delay, ease: "easeOut", type: "tween" }}
       className="will-change-[opacity,transform] transform-gpu"
+      style={{ backfaceVisibility: 'hidden' }}
     >
       {children}
     </motion.div>

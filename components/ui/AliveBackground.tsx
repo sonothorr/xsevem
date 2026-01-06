@@ -12,19 +12,27 @@ export const AliveBackground: React.FC = () => {
           backgroundImage: "url('https://grainy-gradients.vercel.app/noise.svg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          willChange: 'auto',
         }}
       ></div>
       
-      {/* Orbes flutuantes de baixa opacidade */}
+      {/* Orbes flutuantes otimizados - blur reduzido e GPU acceleration */}
       <motion.div 
         animate={{ 
           x: [0, 100, 0], 
           y: [0, 50, 0],
           scale: [1, 1.2, 1]
         }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-brand-cyan/5 blur-[120px] rounded-full"
+        transition={{ 
+          duration: 20, 
+          repeat: Infinity, 
+          ease: "linear",
+          type: "tween"
+        }}
+        className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-brand-cyan/5 blur-[60px] rounded-full transform-gpu will-change-transform"
+        style={{ 
+          backfaceVisibility: 'hidden',
+          transform: 'translateZ(0)',
+        }}
       />
       <motion.div 
         animate={{ 
@@ -32,16 +40,34 @@ export const AliveBackground: React.FC = () => {
           y: [0, 120, 0],
           scale: [1.2, 1, 1.2]
         }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute top-[20%] -right-[10%] w-[40%] h-[40%] bg-brand-cyan/3 blur-[100px] rounded-full"
+        transition={{ 
+          duration: 25, 
+          repeat: Infinity, 
+          ease: "linear",
+          type: "tween"
+        }}
+        className="absolute top-[20%] -right-[10%] w-[40%] h-[40%] bg-brand-cyan/3 blur-[50px] rounded-full transform-gpu will-change-transform"
+        style={{ 
+          backfaceVisibility: 'hidden',
+          transform: 'translateZ(0)',
+        }}
       />
       <motion.div 
         animate={{ 
           x: [0, 50, 0], 
           y: [0, -60, 0],
         }}
-        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-[10%] left-[15%] w-[30%] h-[30%] bg-brand-cyan/5 blur-[80px] rounded-full"
+        transition={{ 
+          duration: 15, 
+          repeat: Infinity, 
+          ease: "linear",
+          type: "tween"
+        }}
+        className="absolute bottom-[10%] left-[15%] w-[30%] h-[30%] bg-brand-cyan/5 blur-[40px] rounded-full transform-gpu will-change-transform"
+        style={{ 
+          backfaceVisibility: 'hidden',
+          transform: 'translateZ(0)',
+        }}
       />
     </div>
   );

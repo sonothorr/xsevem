@@ -57,7 +57,7 @@ export const Process: React.FC = () => {
           <div className="hidden md:block absolute top-[24px] left-0 w-full h-[2px] bg-white/10 z-0">
              <motion.div 
                style={{ scaleX: scaleProgress, transformOrigin: "left" }} 
-               className="h-full bg-brand-cyan shadow-[0_0_15px_rgba(34,211,238,0.6)]"
+               className="h-full bg-brand-cyan shadow-[0_0_15px_rgba(34,211,238,0.6)] transform-gpu will-change-transform"
              />
           </div>
 
@@ -65,7 +65,7 @@ export const Process: React.FC = () => {
           <div className="md:hidden absolute left-[23px] top-[24px] bottom-[10%] w-[2px] bg-white/10 z-0">
              <motion.div 
                style={{ scaleY: scaleProgress, transformOrigin: "top" }} 
-               className="w-full bg-brand-cyan h-full shadow-[0_0_15px_rgba(34,211,238,0.6)]"
+               className="w-full bg-brand-cyan h-full shadow-[0_0_15px_rgba(34,211,238,0.6)] transform-gpu will-change-transform"
              />
           </div>
 
