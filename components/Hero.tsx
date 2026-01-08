@@ -66,7 +66,7 @@ export const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Seu site não é vitrine. É uma engrenagem de vendas operando 24/7.
+          Seu site não é vitrine. É uma engrenagem de vendas operando 24/7, filtrando curiosos e trazendo compradores prontos para fechar.
         </motion.p>
 
         <motion.div
@@ -75,7 +75,7 @@ export const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 px-4 sm:px-0"
         >
-          <Button onClick={() => window.open('https://api.whatsapp.com/send/?phone=5518997747933&text=Ol%C3%A1!+Quero+entender+como+a+XSEVEM+pode+transformar+meu+digital+em+uma+estrutura+de+vendas+lucrativa!&type=phone_number&app_absent=0', '_blank')} className="w-full sm:w-auto" withArrow>
+          <Button onClick={() => window.open('https://api.whatsapp.com/send/?phone=5518997747933&text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20XSEVEM.%20Quero%20entender%20como%20melhorar%20minhas%20vendas%20atrav%C3%A9s%20de%20uma%20estrutura%20digital%20mais%20eficiente.&type=phone_number&app_absent=0', '_blank')} className="w-full sm:w-auto" withArrow>
             Quero vender mais
           </Button>
           <Button variant="ghost" onClick={() => document.getElementById('servicos')?.scrollIntoView({behavior: 'smooth'})} className="w-full sm:w-auto">
@@ -85,7 +85,7 @@ export const Hero: React.FC = () => {
       </div>
 
       <motion.div 
-        className="absolute bottom-6 inset-x-0 mx-auto w-max flex flex-col items-center gap-2 pointer-events-none"
+        className="absolute bottom-6 md:bottom-12 lg:bottom-16 inset-x-0 mx-auto w-max flex flex-col items-center gap-2 pointer-events-none"
         animate={{ y: [0, 8, 0] }}
         transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
       >

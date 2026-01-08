@@ -50,8 +50,8 @@ export const Authority: React.FC = () => {
         </Reveal>
         
         <div className="relative w-full overflow-hidden mask-image-horizontal">
-            <div className="animate-marquee whitespace-nowrap flex items-center gap-20 py-4">
-              {[...logos, ...logos, ...logos, ...logos].map((logo, i) => (
+            <div className="animate-marquee whitespace-nowrap flex items-center gap-12 md:gap-20 py-4 will-change-transform">
+              {[...logos, ...logos].map((logo, i) => (
                 <span key={i} className="text-lg md:text-xl font-display font-bold text-gray-800 hover:text-white transition-colors cursor-default select-none">
                   {logo}
                 </span>
@@ -60,7 +60,8 @@ export const Authority: React.FC = () => {
         </div>
         <style>{`
           .animate-marquee { 
-            animation: marquee 30s linear infinite; 
+            animation: marquee 18s linear infinite; 
+            min-width: max-content;
           }
           @keyframes marquee { 
             0% { transform: translateX(0); } 
@@ -69,6 +70,12 @@ export const Authority: React.FC = () => {
           .mask-image-horizontal {
             -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
             mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+          }
+          @media (max-width: 768px) {
+            .animate-marquee { animation-duration: 14s; }
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .animate-marquee { animation: none; }
           }
         `}</style>
       </div>

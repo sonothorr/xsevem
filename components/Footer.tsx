@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Instagram, Mail } from 'lucide-react';
+import { Instagram, Mail, Facebook } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -23,6 +23,15 @@ export const Footer: React.FC = () => {
             aria-label="Instagram"
           >
             <Instagram size={20} />
+          </a>
+          <a 
+            href="https://www.facebook.com/share/1BWdAF4XCX/?mibextid=wwXIfr" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-gray-400 hover:text-brand-cyan transition-colors"
+            aria-label="Facebook"
+          >
+            <Facebook size={20} />
           </a>
           <a 
             href="mailto:xsevemsuporte@gmail.com" 

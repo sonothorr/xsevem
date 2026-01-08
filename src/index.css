@@ -78,3 +78,28 @@ body {
   color: #050505;
 }
 
+/* Scrollbar customizado */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #22d3ee #0a0a0a;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #22d3ee;
+  border-radius: 999px;
+  border: 2px solid #0a0a0a;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #0ea5e9; /* ciano um pouco mais escuro no hover */
+}
+

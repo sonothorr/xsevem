@@ -7,7 +7,7 @@ import { Button } from './ui/Button';
 export const Contact: React.FC = () => {
   
   const handleWhatsApp = () => {
-    window.open('https://api.whatsapp.com/send/?phone=5518997747933&text=Ol%C3%A1!+Quero+entender+como+a+XSEVEM+pode+transformar+meu+digital+em+uma+estrutura+de+vendas+lucrativa!&type=phone_number&app_absent=0', '_blank');
+    window.open('https://api.whatsapp.com/send/?phone=5518997747933&text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20XSEVEM.%20Quero%20entender%20como%20melhorar%20minhas%20vendas%20atrav%C3%A9s%20de%20uma%20estrutura%20digital%20mais%20eficiente.&type=phone_number&app_absent=0', '_blank');
   };
 
   return (
@@ -20,16 +20,27 @@ export const Contact: React.FC = () => {
         <Reveal>
           <div className="flex flex-col items-center max-w-4xl mx-auto">
             
+            {/* Filtro de Cliente */}
+            <div className="mb-8 md:mb-12 text-center">
+              <p className="text-base sm:text-lg md:text-xl text-white font-bold mb-3 md:mb-4 flex items-center justify-center gap-2">
+                <img src="/icone-XSEVEM.ico" alt="XSEVEM" className="w-6 h-6 md:w-7 md:h-7" />
+                <span>A XSEVEM NÃO É PRA TODO MUNDO.</span>
+              </p>
+              <p className="text-sm md:text-base text-gray-400 max-w-2xl mx-auto font-light leading-relaxed px-2">
+                Se você busca site barato ou só "marcar presença", não somos a escolha certa.<br className="hidden md:block"/>
+                Trabalhamos com empresas que querem lucro, escala e previsibilidade.
+              </p>
+            </div>
+            
             <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-6xl lg:text-7xl tracking-tighter leading-[1] text-white mb-6">
-              VAMOS FALAR SOBRE <br />
+              FALE COM UM <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-cyan via-white to-brand-cyan">
-                O SEU NEGÓCIO?
+                ESPECIALISTA DA XSEVEM
               </span>
             </h2>
             
             <p className="text-sm md:text-lg text-gray-400 max-w-xl mx-auto mb-8 font-light leading-relaxed px-2">
-              Nada de formulários chatos ou robôs. <br className="hidden md:block"/>
-              Chame no WhatsApp e fale com um ser humano pronto para te ajudar a vender mais.
+            Descubra se seu negócio está pronto para uma estrutura que gera vendas todos os dias — ou se ainda está perdendo dinheiro online.
             </p>
 
             {/* Benefits Row */}

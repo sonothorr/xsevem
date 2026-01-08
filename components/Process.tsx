@@ -83,7 +83,7 @@ export const Process: React.FC = () => {
     {
       num: "01",
       title: "Oferta Real",
-      desc: "Analisamos o que você vende e criamos uma oferta que o mercado quer comprar. Não adianta site bonito se a oferta não converte."
+      desc: "Antes de qualquer design, validamos o que realmente vende. Site bonito não paga conta. Oferta certa, sim."
     },
     {
       num: "02",
