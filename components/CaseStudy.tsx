@@ -51,7 +51,7 @@ export function CaseStudy({
 
   return (
     <div ref={containerRef} data-cursor="project" data-cursor-text="VER" className="h-[200vh] relative z-10">
-      <div className="sticky top-0 h-screen w-full p-[10px]">
+      <div className="sticky top-0 h-svh w-full p-[10px]">
         <motion.div
           style={{ scale, opacity, y }}
           className={`w-full h-full ${bgColor} ${textColor} flex flex-col items-center justify-center overflow-hidden radius-md shadow-[0_-10px_40px_rgba(0,0,0,0.5)] origin-top relative`}

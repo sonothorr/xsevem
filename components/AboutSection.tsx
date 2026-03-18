@@ -34,7 +34,7 @@ export function AboutSection() {
 
   return (
     <div ref={containerRef} data-cursor="about" data-cursor-text="INFO" className="h-[200vh] relative z-10 bg-ds-black">
-      <div className="sticky top-0 h-screen flex flex-col items-center justify-center px-6 md:px-12 overflow-hidden">
+      <div className="sticky top-0 h-svh flex flex-col items-center justify-center px-6 md:px-12 overflow-hidden">
         <div className="max-w-5xl mx-auto">
           <h2 className="sr-only">Sobre a XSEVEM</h2>
           <p className="font-display font-medium leading-[1.1] tracking-tight text-[clamp(26px,7vw,36px)] md:text-[clamp(36px,3vw,40px)] text-left flex flex-wrap">

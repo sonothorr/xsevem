@@ -27,7 +27,7 @@ export function HeroSection() {
 
   return (
     <div ref={containerRef} className="h-[200vh] relative z-0">
-      <div className="sticky top-0 h-screen w-full p-[10px]">
+      <div className="sticky top-0 h-svh w-full p-[10px]">
         <motion.section
           ref={sectionRef}
           style={{ scale, opacity, y }}
