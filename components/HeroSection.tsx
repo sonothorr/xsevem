@@ -84,7 +84,7 @@ export function HeroSection() {
                 transition={{ delay: 0.9, duration: 1, ease: [0.11, 0.68, 0.17, 0.99] }}
                 className="text-meta text-black/40 mt-6 tracking-[0.3em]"
               >
-                CRIAMOS MARCAS · SITES · EXPERIÊNCIAS
+                MARCAS · SITES · EXPERIÊNCIAS
               </motion.p>
             </div>
           </div>

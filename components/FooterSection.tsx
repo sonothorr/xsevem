@@ -44,7 +44,7 @@ export function FooterSection() {
           <div className="absolute top-12 left-8 md:left-12 flex flex-col gap-4 z-10">
             <span className="text-[9px] font-bold text-black/20 tracking-widest uppercase">Redes Sociais</span>
             <div className="flex flex-col gap-2">
-              <motion.a href="https://www.instagram.com/xsevemx/" target="_blank" rel="noopener noreferrer" whileHover={{ x: 5, color: '#000' }} className="text-meta text-black/40 hover:text-black transition-colors uppercase font-medium">INSTAGRAM</motion.a>
+              <motion.a href="https://www.instagram.com/xsevembrasil/" target="_blank" rel="noopener noreferrer" whileHover={{ x: 5, color: '#000' }} className="text-meta text-black/40 hover:text-black transition-colors uppercase font-medium">INSTAGRAM</motion.a>
               <motion.a href="https://wa.me/5518997747933" target="_blank" rel="noopener noreferrer" whileHover={{ x: 5, color: '#000' }} className="text-meta text-black/40 hover:text-black transition-colors uppercase font-medium">WHATSAPP</motion.a>
             </div>
           </div>

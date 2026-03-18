@@ -4,6 +4,7 @@ import './globals.css'; // Global styles
 import SmoothScroller from '@/components/SmoothScroller';
 import { CustomCursor } from '@/components/CustomCursor';
 import { Preloader } from '@/components/Preloader';
+import { ScrollProgress } from '@/components/ScrollProgress';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -80,6 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-br" className={`${inter.variable} ${spaceMono.variable}`}>
       <body className="antialiased bg-ds-black text-ds-white overflow-x-hidden selection:bg-ds-white selection:text-ds-black" suppressHydrationWarning>
         <PreloaderProvider>
+          <ScrollProgress />
           <SmoothScroller>
             <Preloader />
             {children}

@@ -4,8 +4,8 @@ import { motion, useInView, useMotionValue, useTransform, animate } from 'motion
 import { useRef, useEffect } from 'react';
 
 const stats = [
-  { target: 3, suffix: '+', label: 'ANOS' },
-  { target: 20, suffix: '+', label: 'PROJETOS' },
+  { target: 2, suffix: '+', label: 'ANOS' },
+  { target: 80, suffix: '+', label: 'PROJETOS' },
   { target: 100, suffix: '%', label: 'DEDICAÇÃO' },
 ];
 
@@ -43,37 +43,37 @@ export function StatsSection() {
     <section ref={ref} className="w-full py-12 px-[10px] relative z-10">
       <div className="bg-ds-black radius-2xl py-24 px-6 md:px-12 overflow-hidden">
         <h2 className="sr-only">Nosso Impacto em Números</h2>
-      {/* Linha separadora topo */}
-      <div className="w-full h-[1px] bg-white/10 mb-20" />
+        {/* Linha separadora topo */}
+        <div className="w-full h-[1px] bg-white/10 mb-20" />
 
-      <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-12 max-w-screen-xl mx-auto">
-        {stats.map((item, i) => (
-          <motion.div
-            key={item.label}
-            initial={{ opacity: 0, y: 40 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-            transition={{ duration: 0.9, delay: i * 0.15, ease: [0.11, 0.68, 0.17, 0.99] }}
-            className="flex flex-col gap-2 flex-1"
-          >
-            {/* Número animado */}
-            <span
-              className="font-display font-extrabold leading-none tracking-tighter text-white"
-              style={{ fontSize: 'clamp(80px, 12vw, 200px)' }}
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-12 max-w-screen-xl mx-auto">
+          {stats.map((item, i) => (
+            <motion.div
+              key={item.label}
+              initial={{ opacity: 0, y: 40 }}
+              animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+              transition={{ duration: 0.9, delay: i * 0.15, ease: [0.11, 0.68, 0.17, 0.99] }}
+              className="flex flex-col gap-2 flex-1"
             >
-              <AnimatedNumber target={item.target} suffix={item.suffix} />
-            </span>
+              {/* Número animado */}
+              <span
+                className="font-display font-extrabold leading-none tracking-tighter text-white"
+                style={{ fontSize: 'clamp(80px, 12vw, 200px)' }}
+              >
+                <AnimatedNumber target={item.target} suffix={item.suffix} />
+              </span>
 
-            {/* Linha + label */}
-            <div className="flex items-center gap-4">
-              <div className="flex-1 h-[1px] bg-white/10" />
-              <span className="text-meta text-white/40">{item.label}</span>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+              {/* Linha + label */}
+              <div className="flex items-center gap-4">
+                <div className="flex-1 h-[1px] bg-white/10" />
+                <span className="text-meta text-white/40">{item.label}</span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-      {/* Linha separadora base */}
-      <div className="w-full h-[1px] bg-white/10 mt-20" />
+        {/* Linha separadora base */}
+        <div className="w-full h-[1px] bg-white/10 mt-20" />
       </div>
     </section>
   );

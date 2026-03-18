@@ -16,8 +16,8 @@ export default function Portfolio() {
         <AboutSection />
 
         <CaseStudy
-          title="LANDING PAGE"
-          subtitle="LANDING PAGE"
+          title="SITE"
+          subtitle="SITE"
           bgColor="bg-green-500"
           textColor="text-ds-white"
           index={1}
@@ -31,7 +31,7 @@ export default function Portfolio() {
 
         <div className="-mt-[100vh] md:-mt-[100vh]">
           <CaseStudy
-            title="PRADA PAY"
+            title="MEDIA"
             subtitle="MEDIA/BRAND/TRAFEGO PAGO"
             bgColor="bg-ds-blue-strong"
             textColor="text-ds-white"

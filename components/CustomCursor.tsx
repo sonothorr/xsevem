@@ -4,6 +4,7 @@ import { motion, useMotionValue, useSpring } from 'motion/react';
 import { useEffect, useState } from 'react';
 
 export function CustomCursor() {
+  const [isDesktop, setIsDesktop] = useState(false);
   const [cursorType, setCursorType] = useState('default');
   const [cursorText, setCursorText] = useState('');
   
@@ -15,6 +16,10 @@ export function CustomCursor() {
   const cursorY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
+    // Verificar se o dispositivo tem um ponteiro de precisão (mouse)
+    const mediaQuery = window.matchMedia('(pointer: fine)');
+    setIsDesktop(mediaQuery.matches);
+
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
@@ -80,6 +85,8 @@ export function CustomCursor() {
   };
 
   const currentVariant = variants[cursorType as keyof typeof variants] || variants.default;
+
+  if (!isDesktop) return null;
 
   return (
     <motion.div
