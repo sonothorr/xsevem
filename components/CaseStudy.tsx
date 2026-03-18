@@ -38,8 +38,8 @@ export function CaseStudy({
   });
 
   // Scale down slightly and darken when the NEXT section scrolls over
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.98]);
-  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0, 0.4]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.96]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0, 0.3]);
 
   // Entrance animations for the 3D mockups
   const { scrollYProgress: enterProgress } = useScroll({
@@ -57,7 +57,7 @@ export function CaseStudy({
       ref={containerRef} 
       data-cursor="project" 
       data-cursor-text="VER" 
-      className="h-[120vh] md:h-[130vh] relative w-full"
+      className="h-[120vh] relative w-full"
       style={{ zIndex }}
     >
       <div 
@@ -66,7 +66,7 @@ export function CaseStudy({
       >
         <motion.div
           style={{ scale }}
-          className={`w-full h-full ${bgColor} ${textColor} flex flex-col items-center justify-center overflow-hidden radius-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/5 origin-top relative`}
+          className={`w-full h-full ${bgColor} ${textColor} flex flex-col items-center justify-center overflow-hidden radius-2xl shadow-[0_30px_60px_rgba(0,0,0,0.4)] border border-white/5 origin-top relative`}
         >
           {/* Progress Overlay (darkens previous card as next one comes) */}
           <motion.div 

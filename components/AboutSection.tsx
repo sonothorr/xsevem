@@ -10,7 +10,7 @@ interface WordProps {
 }
 
 function Word({ children, progress, range }: WordProps) {
-  const opacity = useTransform(progress, range, [0.15, 1]);
+  const opacity = useTransform(progress, range, [0.1, 1]);
   return (
     <span className="relative inline-block mr-[0.25em]">
       <motion.span style={{ opacity }} className="text-white">
@@ -33,14 +33,14 @@ export function AboutSection() {
   const words = text.split(' ');
 
   return (
-    <div ref={containerRef} data-cursor="about" data-cursor-text="INFO" className="h-[200vh] relative z-10 p-[10px]">
-      <div className="sticky top-0 h-svh flex flex-col items-center justify-center px-6 md:px-12 bg-ds-black radius-2xl overflow-hidden">
+    <div ref={containerRef} data-cursor="about" data-cursor-text="INFO" className="h-[300vh] relative z-10 p-[10px]">
+      <div className="sticky top-0 h-svh flex flex-col items-center justify-center px-6 md:px-12 bg-ds-black radius-2xl overflow-hidden shadow-2xl">
         <div className="max-w-5xl mx-auto">
           <h2 className="sr-only">Sobre a XSEVEM</h2>
-          <p className="font-display font-medium leading-[1.2] tracking-tight text-xl md:text-3xl text-left flex flex-wrap">
+          <p className="font-display font-medium leading-[1.15] tracking-tight text-2xl md:text-5xl text-left flex flex-wrap">
             {words.map((word, i) => {
-              const start = (i / words.length) * 0.9;
-              const end = start + (1 / words.length) * 0.9;
+              const start = (i / words.length) * 0.4;
+              const end = start + 0.15; // Smooth overlap between words
               return (
                 <Word key={i} progress={scrollYProgress} range={[start, end]}>
                   {word}
