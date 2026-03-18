@@ -37,8 +37,8 @@ export function CaseStudy({
     offset: ['start start', 'end start'],
   });
 
-  // Scale down slightly and darken when the NEXT section scrolls over
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.96]);
+  // Neutral transformation or slight shift if needed, but for "reveal" we mostly want the top one to slide away
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [1, 1, 0.98]);
   const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0, 0.3]);
 
   // Entrance animations for the 3D mockups
@@ -57,11 +57,11 @@ export function CaseStudy({
       ref={containerRef} 
       data-cursor="project" 
       data-cursor-text="VER" 
-      className="h-[120vh] relative w-full"
+      className="h-[200vh] relative w-full"
       style={{ zIndex }}
     >
       <div 
-        className="sticky w-full h-svh p-2 md:p-6"
+        className="sticky w-full h-svh top-0"
         style={{ top: `${topOffset}px` }}
       >
         <motion.div

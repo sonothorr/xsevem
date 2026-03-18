@@ -85,7 +85,10 @@
   }
 
   .radius-2xl {
-    border-radius: 64px;
+    border-radius: 24px;
+    @media (min-width: 768px) {
+      border-radius: 32px;
+    }
   }
 
   .radius-round {
