@@ -28,7 +28,7 @@ export default function Portfolio() {
         />
 
         <CaseStudy
-          title="SOCIAL"
+          title="PRADA PAY"
           subtitle="MEDIA/BRAND/TRAFEGO PAGO"
           bgColor="bg-ds-blue-strong"
           textColor="text-ds-white"

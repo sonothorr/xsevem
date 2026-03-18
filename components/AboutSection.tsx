@@ -33,7 +33,7 @@ export function AboutSection() {
   const words = text.split(' ');
 
   return (
-    <div ref={containerRef} data-cursor="about" data-cursor-text="INFO" className="h-[200vh] relative z-10 bg-ds-black">
+    <div ref={containerRef} data-cursor="about" data-cursor-text="INFO" className="h-[300vh] md:h-[200vh] relative z-10 bg-ds-black">
       <div className="sticky top-0 h-svh flex flex-col items-center justify-center px-6 md:px-12 overflow-hidden">
         <div className="max-w-5xl mx-auto">
           <h2 className="sr-only">Sobre a XSEVEM</h2>

@@ -52,8 +52,8 @@ export function FooterSection() {
           <div className="absolute top-12 right-8 md:right-12 flex flex-col gap-4 z-10 text-right">
             <span className="text-[9px] font-bold text-black/20 tracking-widest uppercase">Fale Conosco</span>
             <div className="flex flex-col gap-2">
-              <motion.a href="mailto:xsevemsuporte@gmail.com" whileHover={{ x: -5, color: '#000' }} className="text-meta text-black/40 hover:text-black transition-colors uppercase font-medium">XSEVEMSUPORTE@GMAIL.COM</motion.a>
-              <motion.a href="tel:+5518997747933" whileHover={{ x: -5, color: '#000' }} className="text-meta text-black/40 hover:text-black transition-colors uppercase font-medium">+55 18 99774-7933</motion.a>
+              <motion.a href="mailto:xsevemsuporte@gmail.com" whileHover={{ x: -5, color: '#000' }} className="text-meta text-black/40 hover:text-black transition-colors uppercase font-medium">E-mail</motion.a>
+              <motion.a href="tel:+5518997747933" whileHover={{ x: -5, color: '#000' }} className="text-meta text-black/40 hover:text-black transition-colors uppercase font-medium">Telefone</motion.a>
             </div>
           </div>
 

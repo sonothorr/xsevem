@@ -63,9 +63,9 @@ export function CaseStudy({
           </div>
 
           {/* Giant Headline Background */}
-          <div className="absolute inset-0 flex items-end justify-center z-0 pointer-events-none opacity-10 overflow-hidden pb-0">
+          <div className="absolute inset-0 flex items-end justify-center z-0 pointer-events-none opacity-20 overflow-hidden pb-0">
             <motion.h2
-              style={{ y: bgTextY, fontSize: 'clamp(120px, 40vw, 600px)' }}
+              style={{ y: bgTextY, fontSize: 'clamp(100px, 45vw, 600px)' }}
               className="font-display font-extrabold leading-none tracking-tighter whitespace-nowrap"
             >
               {title}
