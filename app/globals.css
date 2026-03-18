@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-space-mono), ui-sans-serif, system-ui, sans-serif;
+
+  --color-ds-black: #050505;
+  --color-ds-white: #fafafa;
+  --color-ds-surface-1: #111111;
+  --color-ds-surface-2: #1a1a1a;
+  --color-ds-surface-3: #222222;
+  --color-ds-surface-4: #333333;
+  --color-ds-offwhite: #f5f5f5;
+  --color-ds-beige: #f0ebe4;
+
+  --color-ds-red: #ff2a2a;
+  --color-ds-lime: #ccff00;
+  --color-ds-yellow: #f8e71c;
+  --color-ds-blue: #1e40af;
+  --color-ds-blue-strong: #0022ff;
+  --color-ds-navy: #08081e;
+  --color-ds-green: #337a28;
+  --color-ds-green-dark: #2d6e23;
+  --color-ds-green-bright: #00ff22;
+  --color-ds-olive: #55872b;
+  --color-ds-gold: #d9aa64;
+  --color-ds-gold-dark: #967a50;
+  --color-ds-brown: #633a3a;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-ds-black);
+    color: var(--color-ds-white);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  @media (pointer: fine) {
+    /* Ocultar apenas em seções onde queremos substituição total, ou deixar visível para feedback tátil */
+    [data-cursor="project"],
+    [data-cursor="about"] {
+       cursor: none;
+    }
+  }
+}
+
+@layer utilities {
+  .text-display {
+    font-family: var(--font-display);
+    font-size: clamp(60px, 12vw, 280px);
+    /* Aumentado um pouco o range para telas Ultra Wide */
+    letter-spacing: -0.04em;
+    line-height: 0.8;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+
+  .text-meta {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .text-body-sm {
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .radius-sm {
+    border-radius: 16px;
+  }
+
+  .radius-md {
+    border-radius: 32px;
+  }
+
+  .radius-round {
+    border-radius: 120px;
+  }
+
+  .perspective-base {
+    perspective: 1200px;
+  }
+
+  .perspective-deep {
+    perspective: 1600px;
+  }
+
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+/* Helpers utilitários adicionais customizados */
+.mix-blend-overlay {
+  mix-blend-mode: overlay;
+}
+
+.mix-blend-difference {
+  mix-blend-mode: difference;
+}
