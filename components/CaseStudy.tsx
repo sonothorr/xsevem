@@ -3,6 +3,7 @@
 import { motion, useScroll, useTransform } from 'motion/react';
 import { useRef } from 'react';
 import Image from 'next/image';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface CaseStudyProps {
   title: string;
@@ -32,6 +33,7 @@ export function CaseStudy({
   topOffset = 0,
 }: CaseStudyProps) {
   const containerRef = useRef(null);
+  const isMobile = useIsMobile();
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ['start start', 'end start'],
@@ -49,6 +51,15 @@ export function CaseStudy({
 
   const mockupY = useTransform(enterProgress, [0, 1], [100, 0]);
   const mockupRotateX = useTransform(enterProgress, [0, 1], [15, 5]);
+
+  // Mobile-specific automatic reveal as card is in view
+  const revealProgress = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
+  const leftXMobile = useTransform(revealProgress, [0, 1], ['-65%', '-80%']);
+  const rightXMobile = useTransform(revealProgress, [0, 1], ['65%', '80%']);
+  const sideRotateYMobile = useTransform(revealProgress, [0, 1], [15, 5]);
+  const rightRotateYMobile = useTransform(revealProgress, [0, 1], [-15, -5]);
+  const mainScaleMobile = useTransform(revealProgress, [0, 1], [1, 1.05]);
+  const mainZMobile = useTransform(revealProgress, [0, 1], [50, 100]);
 
   const bgTextY = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
@@ -97,10 +108,12 @@ export function CaseStudy({
               className="w-full h-full relative transform-style-3d flex items-center justify-center group"
             >
               {/* Background Mockup Left */}
-              <div
-                className="absolute w-[45%] md:w-[35%] aspect-[3/4] bg-ds-surface-2 radius-sm shadow-2xl overflow-hidden border border-white/10 opacity-80 transition-transform duration-700 group-hover:translate-x-[-70%] group-hover:rotate-y-[10deg]"
+              <motion.div
+                className="absolute w-[45%] md:w-[35%] aspect-[3/4] bg-ds-surface-2 radius-sm shadow-2xl overflow-hidden border border-white/10 opacity-80 transition-transform duration-700 md:group-hover:translate-x-[-70%] md:group-hover:rotate-y-[10deg]"
                 style={{
-                  transform: 'translateX(-65%) translateZ(-150px) rotateY(15deg)',
+                  transform: 'translateZ(-150px)',
+                  x: isMobile ? leftXMobile : '-65%',
+                  rotateY: isMobile ? sideRotateYMobile : 15,
                 }}
               >
                 <Image
@@ -109,13 +122,15 @@ export function CaseStudy({
                   fill
                   className="object-cover grayscale"
                 />
-              </div>
+              </motion.div>
 
               {/* Background Mockup Right */}
-              <div
-                className="absolute w-[45%] md:w-[35%] aspect-[3/4] bg-ds-surface-2 radius-sm shadow-2xl overflow-hidden border border-white/10 opacity-80 transition-transform duration-700 group-hover:translate-x-[70%] group-hover:rotate-y-[-10deg]"
+              <motion.div
+                className="absolute w-[45%] md:w-[35%] aspect-[3/4] bg-ds-surface-2 radius-sm shadow-2xl overflow-hidden border border-white/10 opacity-80 transition-transform duration-700 md:group-hover:translate-x-[70%] md:group-hover:rotate-y-[-10deg]"
                 style={{
-                  transform: 'translateX(65%) translateZ(-150px) rotateY(-15deg)',
+                  transform: 'translateZ(-150px)',
+                  x: isMobile ? rightXMobile : '65%',
+                  rotateY: isMobile ? rightRotateYMobile : -15,
                 }}
               >
                 <Image
@@ -124,16 +139,19 @@ export function CaseStudy({
                   fill
                   className="object-cover grayscale"
                 />
-              </div>
+              </motion.div>
 
               {/* Main Mockup */}
               {link ? (
-                <a
+                <motion.a
                   href={link}
                   target="_blank"
                   rel="noopener noreferrer"
-                   className="absolute w-[70%] md:w-[55%] aspect-[3/4] md:aspect-[4/3] bg-ds-surface-1 radius-sm shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden border border-white/20 transition-transform duration-700 group-hover:scale-[1.03] group-hover:translate-z-[80px] cursor-pointer"
-                  style={{ transform: 'translateZ(50px)' }}
+                  className="absolute w-[70%] md:w-[55%] aspect-[3/4] md:aspect-[4/3] bg-ds-surface-1 radius-sm shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden border border-white/20 transition-transform duration-700 md:group-hover:scale-[1.03] md:group-hover:translate-z-[80px] cursor-pointer"
+                  style={{ 
+                    scale: isMobile ? mainScaleMobile : 1,
+                    z: isMobile ? mainZMobile : 50,
+                  }}
                 >
                   <Image
                     src={mainImage || `https://picsum.photos/seed/${title}/1200/900`}
@@ -141,11 +159,14 @@ export function CaseStudy({
                     fill
                     className="object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
-                </a>
+                </motion.a>
               ) : (
-                <div
-                   className="absolute w-[70%] md:w-[55%] aspect-[3/4] md:aspect-[4/3] bg-ds-surface-1 radius-sm shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden border border-white/20 transition-transform duration-700 group-hover:scale-[1.03] group-hover:translate-z-[80px] cursor-default"
-                  style={{ transform: 'translateZ(50px)' }}
+                <motion.div
+                   className="absolute w-[70%] md:w-[55%] aspect-[3/4] md:aspect-[4/3] bg-ds-surface-1 radius-sm shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden border border-white/20 transition-transform duration-700 md:group-hover:scale-[1.03] md:group-hover:translate-z-[80px] cursor-default"
+                  style={{ 
+                    scale: isMobile ? mainScaleMobile : 1,
+                    z: isMobile ? mainZMobile : 50,
+                  }}
                 >
                   <Image
                     src={mainImage || `https://picsum.photos/seed/${title}/1200/900`}
@@ -153,7 +174,7 @@ export function CaseStudy({
                     fill
                     className="object-cover transition-transform duration-1000 group-hover:scale-105"
                   />
-                </div>
+                </motion.div>
               )}
 
             </motion.div>
