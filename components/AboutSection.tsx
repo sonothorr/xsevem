@@ -33,14 +33,14 @@ export function AboutSection() {
   const words = text.split(' ');
 
   return (
-    <div ref={containerRef} data-cursor="about" data-cursor-text="INFO" className="h-[300vh] md:h-[200vh] relative z-10 bg-ds-black">
-      <div className="sticky top-0 h-svh flex flex-col items-center justify-center px-6 md:px-12 overflow-hidden">
+    <div ref={containerRef} data-cursor="about" data-cursor-text="INFO" className="h-[400vh] md:h-[200vh] relative z-10 bg-ds-black">
+      <div className="sticky top-0 h-svh flex flex-col items-center justify-center px-6 md:px-12">
         <div className="max-w-5xl mx-auto">
           <h2 className="sr-only">Sobre a XSEVEM</h2>
           <p className="font-display font-medium leading-[1.1] tracking-tight text-[clamp(26px,7vw,36px)] md:text-[clamp(36px,3vw,40px)] text-left flex flex-wrap">
             {words.map((word, i) => {
-              const start = i / words.length;
-              const end = start + 1 / words.length;
+              const start = (i / words.length) * 0.8;
+              const end = start + (1 / words.length) * 0.8;
               return (
                 <Word key={i} progress={scrollYProgress} range={[start, end]}>
                   {word}

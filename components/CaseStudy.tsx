@@ -14,6 +14,7 @@ interface CaseStudyProps {
   bgImage1?: string;
   bgImage2?: string;
   link?: string;
+  zIndex?: number;
 }
 
 export function CaseStudy({
@@ -26,6 +27,7 @@ export function CaseStudy({
   bgImage1,
   bgImage2,
   link,
+  zIndex = 10,
 }: CaseStudyProps) {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -33,10 +35,12 @@ export function CaseStudy({
     offset: ['start start', 'end start'],
   });
 
-  // Scale down when the NEXT section scrolls over this one
-  const scale = useTransform(scrollYProgress, [0.5, 1], [1, 0.85]);
-  const opacity = useTransform(scrollYProgress, [0.5, 1], [1, 0.3]);
-  const y = useTransform(scrollYProgress, [0.5, 1], [0, 100]);
+  // Scale down and fade when the NEXT section scrolls over this one
+  // This creates the "stacking" effect where the card stays but shrinks slightly
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+  const opacity = useTransform(scrollYProgress, [0.8, 1], [1, 0.8]);
+  // Remove Y transform to keep it sticky in place
+  // const y = useTransform(scrollYProgress, [0.5, 1], [0, 100]);
 
   // Entrance animations for the 3D mockups
   const { scrollYProgress: enterProgress } = useScroll({
@@ -50,11 +54,17 @@ export function CaseStudy({
   const bgTextY = useTransform(scrollYProgress, [0, 1], [0, 200]);
 
   return (
-    <div ref={containerRef} data-cursor="project" data-cursor-text="VER" className="h-[200vh] relative z-10">
-      <div className="sticky top-0 h-svh w-full p-[10px]">
+    <div 
+      ref={containerRef} 
+      data-cursor="project" 
+      data-cursor-text="VER" 
+      className="h-[120vh] md:h-[150vh] relative"
+      style={{ zIndex }}
+    >
+      <div className="sticky top-0 h-svh w-full p-[10px] md:p-4">
         <motion.div
-          style={{ scale, opacity, y }}
-          className={`w-full h-full ${bgColor} ${textColor} flex flex-col items-center justify-center overflow-hidden radius-md shadow-[0_-10px_40px_rgba(0,0,0,0.5)] origin-top relative`}
+          style={{ scale, opacity }}
+          className={`w-full h-full ${bgColor} ${textColor} flex flex-col items-center justify-center overflow-hidden radius-lg shadow-[0_-20px_50px_rgba(0,0,0,0.3)] origin-top relative`}
         >
           {/* Top Meta */}
           <div className="absolute top-8 left-8 right-8 md:top-12 md:left-12 md:right-12 flex justify-between items-start z-20 text-white">

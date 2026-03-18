@@ -25,31 +25,38 @@ export default function Portfolio() {
           bgImage1="/nathan1.webp"
           bgImage2="/nathan1.webp"
           link="https://nathan-bay.vercel.app/"
+          zIndex={11}
         />
 
-        <CaseStudy
-          title="PRADA PAY"
-          subtitle="MEDIA/BRAND/TRAFEGO PAGO"
-          bgColor="bg-ds-blue-strong"
-          textColor="text-ds-white"
-          index={2}
-          mainImage="/pradapay.webp"
-          bgImage1="/pradapay1.webp"
-          bgImage2="/pradapay1.webp"
-          link="https://www.instagram.com/pradapayoficial/"
-        />
+        <div className="-mt-[20vh] md:-mt-[30vh]">
+          <CaseStudy
+            title="PRADA PAY"
+            subtitle="MEDIA/BRAND/TRAFEGO PAGO"
+            bgColor="bg-ds-blue-strong"
+            textColor="text-ds-white"
+            index={2}
+            mainImage="/pradapay.webp"
+            bgImage1="/pradapay1.webp"
+            bgImage2="/pradapay1.webp"
+            link="https://www.instagram.com/pradapayoficial/"
+            zIndex={12}
+          />
+        </div>
 
-        <CaseStudy
-          title="SAAS"
-          subtitle="SAAS"
-          bgColor="bg-ds-surface-1"
-          textColor="text-ds-white"
-          index={3}
-          mainImage="/gestaodebanca.webp"
-          bgImage1="/gestaodebanca2.webp"
-          bgImage2="/gestaodebanca2.webp"
-          link="https://bancaplaydolar.netlify.app/"
-        />
+        <div className="-mt-[20vh] md:-mt-[30vh]">
+          <CaseStudy
+            title="SAAS"
+            subtitle="SAAS"
+            bgColor="bg-ds-surface-1"
+            textColor="text-ds-white"
+            index={3}
+            mainImage="/gestaodebanca.webp"
+            bgImage1="/gestaodebanca2.webp"
+            bgImage2="/gestaodebanca2.webp"
+            link="https://bancaplaydolar.netlify.app/"
+            zIndex={13}
+          />
+        </div>
 
         <FooterSection />
       </div>
