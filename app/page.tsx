@@ -26,9 +26,10 @@ export default function Portfolio() {
           bgImage2="/nathan1.webp"
           link="https://nathan-bay.vercel.app/"
           zIndex={11}
+          topOffset={0}
         />
 
-        <div className="-mt-[20vh] md:-mt-[30vh]">
+        <div className="-mt-[40vh] md:-mt-[50vh]">
           <CaseStudy
             title="PRADA PAY"
             subtitle="MEDIA/BRAND/TRAFEGO PAGO"
@@ -40,10 +41,11 @@ export default function Portfolio() {
             bgImage2="/pradapay1.webp"
             link="https://www.instagram.com/pradapayoficial/"
             zIndex={12}
+            topOffset={20}
           />
         </div>
 
-        <div className="-mt-[20vh] md:-mt-[30vh]">
+        <div className="-mt-[40vh] md:-mt-[50vh]">
           <CaseStudy
             title="SAAS"
             subtitle="SAAS"
@@ -55,6 +57,7 @@ export default function Portfolio() {
             bgImage2="/gestaodebanca2.webp"
             link="https://bancaplaydolar.netlify.app/"
             zIndex={13}
+            topOffset={40}
           />
         </div>
 

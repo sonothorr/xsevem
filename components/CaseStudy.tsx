@@ -15,6 +15,7 @@ interface CaseStudyProps {
   bgImage2?: string;
   link?: string;
   zIndex?: number;
+  topOffset?: number;
 }
 
 export function CaseStudy({
@@ -28,6 +29,7 @@ export function CaseStudy({
   bgImage2,
   link,
   zIndex = 10,
+  topOffset = 0,
 }: CaseStudyProps) {
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -35,12 +37,9 @@ export function CaseStudy({
     offset: ['start start', 'end start'],
   });
 
-  // Scale down and fade when the NEXT section scrolls over this one
-  // This creates the "stacking" effect where the card stays but shrinks slightly
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
-  const opacity = useTransform(scrollYProgress, [0.8, 1], [1, 0.8]);
-  // Remove Y transform to keep it sticky in place
-  // const y = useTransform(scrollYProgress, [0.5, 1], [0, 100]);
+  // Scale down slightly and darken when the NEXT section scrolls over
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.98]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0, 0.4]);
 
   // Entrance animations for the 3D mockups
   const { scrollYProgress: enterProgress } = useScroll({
@@ -48,26 +47,35 @@ export function CaseStudy({
     offset: ['start end', 'start center'],
   });
 
-  const mockupY = useTransform(enterProgress, [0, 1], [150, 0]);
-  const mockupRotateX = useTransform(enterProgress, [0, 1], [25, 5]);
+  const mockupY = useTransform(enterProgress, [0, 1], [100, 0]);
+  const mockupRotateX = useTransform(enterProgress, [0, 1], [15, 5]);
 
-  const bgTextY = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const bgTextY = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   return (
     <div 
       ref={containerRef} 
       data-cursor="project" 
       data-cursor-text="VER" 
-      className="h-[120vh] md:h-[150vh] relative"
+      className="h-[120vh] md:h-[130vh] relative w-full"
       style={{ zIndex }}
     >
-      <div className="sticky top-0 h-svh w-full p-[10px] md:p-4">
+      <div 
+        className="sticky w-full h-svh p-2 md:p-6"
+        style={{ top: `${topOffset}px` }}
+      >
         <motion.div
-          style={{ scale, opacity }}
-          className={`w-full h-full ${bgColor} ${textColor} flex flex-col items-center justify-center overflow-hidden radius-lg shadow-[0_-20px_50px_rgba(0,0,0,0.3)] origin-top relative`}
+          style={{ scale }}
+          className={`w-full h-full ${bgColor} ${textColor} flex flex-col items-center justify-center overflow-hidden radius-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/5 origin-top relative`}
         >
+          {/* Progress Overlay (darkens previous card as next one comes) */}
+          <motion.div 
+            style={{ opacity: overlayOpacity }}
+            className="absolute inset-0 bg-black z-30 pointer-events-none"
+          />
+
           {/* Top Meta */}
-          <div className="absolute top-8 left-8 right-8 md:top-12 md:left-12 md:right-12 flex justify-between items-start z-20 text-white">
+          <div className="absolute top-6 left-6 right-6 md:top-10 md:left-10 md:right-10 flex justify-between items-start z-40 text-white">
             <span className="text-meta">0{index}</span>
             <span className="text-meta">{subtitle}</span>
           </div>

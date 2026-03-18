@@ -80,6 +80,14 @@
     border-radius: 32px;
   }
 
+  .radius-lg {
+    border-radius: 40px;
+  }
+
+  .radius-2xl {
+    border-radius: 64px;
+  }
+
   .radius-round {
     border-radius: 120px;
   }

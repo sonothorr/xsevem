@@ -6,7 +6,7 @@ export function FooterSection() {
   return (
     <div className="h-screen relative z-20">
       <div className="sticky top-0 h-screen w-full p-[10px]">
-        <section className="w-full h-full bg-white radius-md flex flex-col items-center justify-center shadow-[0_-10px_40px_rgba(0,0,0,0.05)] overflow-hidden relative px-6">
+        <section className="w-full h-full bg-white radius-2xl flex flex-col items-center justify-center shadow-[0_-10px_40px_rgba(0,0,0,0.05)] overflow-hidden relative px-6">
           {/* CTA Circular Premium */}
           <motion.a
             href="https://wa.me/5518997747933?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20sobre%20um%20projeto%20com%20a%20XSEVEM!"

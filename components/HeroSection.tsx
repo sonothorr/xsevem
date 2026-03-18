@@ -33,7 +33,7 @@ export function HeroSection() {
           style={{ scale, opacity, y }}
           data-cursor="hero"
           data-cursor-text="XSEVEM"
-          className="w-full h-full flex flex-col justify-between p-6 md:p-12 bg-white radius-md overflow-hidden shadow-[0_-10px_40px_rgba(0,0,0,0.3)] origin-top relative"
+          className="w-full h-full flex flex-col justify-between p-6 md:p-12 bg-white radius-2xl overflow-hidden shadow-[0_-10px_40px_rgba(0,0,0,0.3)] origin-top relative"
         >
           {/* Header */}
           <div className="flex justify-center items-start w-full relative z-10">

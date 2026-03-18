@@ -40,8 +40,9 @@ export function StatsSection() {
   const inView = useInView(ref, { once: false, margin: '-100px' });
 
   return (
-    <section ref={ref} className="w-full bg-ds-black py-24 px-6 md:px-12 relative z-10">
-      <h2 className="sr-only">Nosso Impacto em Números</h2>
+    <section ref={ref} className="w-full py-12 px-[10px] relative z-10">
+      <div className="bg-ds-black radius-2xl py-24 px-6 md:px-12 overflow-hidden">
+        <h2 className="sr-only">Nosso Impacto em Números</h2>
       {/* Linha separadora topo */}
       <div className="w-full h-[1px] bg-white/10 mb-20" />
 
@@ -73,6 +74,7 @@ export function StatsSection() {
 
       {/* Linha separadora base */}
       <div className="w-full h-[1px] bg-white/10 mt-20" />
+      </div>
     </section>
   );
 }
