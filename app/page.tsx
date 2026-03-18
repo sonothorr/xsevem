@@ -45,9 +45,9 @@ export default function Portfolio() {
           bgColor="bg-ds-surface-1"
           textColor="text-ds-white"
           index={3}
-          mainImage="/gestaodebanca.png"
-          bgImage1="/gestaodebanca2.png"
-          bgImage2="/gestaodebanca2.png"
+          mainImage="/gestaodebanca.webp"
+          bgImage1="/gestaodebanca2.webp"
+          bgImage2="/gestaodebanca2.webp"
           link="https://bancaplaydolar.netlify.app/"
         />
 
